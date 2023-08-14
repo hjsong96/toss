@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sendMoney"> 
+	
+	<select id="sendList" parameterType="accountsDTO" resultType="accountsDTO">
+		SELECT aaccount, abank, abalance FROM accounts where aaccount= #{aaccount}
+	</select>
+
+<!-- 	<select id="acCheck" parameterType="accountsDTO" resultType="accountsDTO">
+		SELECT aaccount, abank FROM accounts where aaccount= #{aaccount} AND abank = #{abank }
+	</select> -->
+	
+	<select id="acCheck" parameterType="Map" resultType="Integer">
+		SELECT COUNT(*) FROM accounts WHERE aaccount= #{aaccount} AND abank = #{abank }
+	</select>
+
+</mapper>
