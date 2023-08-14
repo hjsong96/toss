@@ -5,5 +5,6 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="com.toss.send.AccountsDTO" alias="accountsDTO"/>
+		<typeAlias type="com.toss.send.TransactionsDTO" alias="transactionsDTO"/>
 	</typeAliases>
 </configuration>

@@ -8,20 +8,18 @@
 <title>보내기1</title>
 </head>
 <body>
-	<a href="./send" style="text-decoration-line: none">
+	<a href="./" style="text-decoration-line: none">
 	<img alt="사진없음" src="./img/arrow2.png"><span style="font-size: 30px">토스뱅크</span>
 	</a>
-	<form action="./send" method="post">
-		계좌번호 입력
-		<input type="text" placeholder="계좌번호 입력" name="aaccount" id="aaccount">
-		<button type="submit" id="inputAc" onclick="location.href='./send2'">확인</button>
+		<h3>${list[0].abank} ${list[0].aaccount}</h3>
+		<h1>${list[0].abalance} 원</h1>
+	<form action="./send2" method="post">
+		<button>채우기</button>
+		<button type="submit">보내기</button>
+		<c:forEach items="${list }" var="a">
+		<input name="acCheck" value="${a.aaccount }">
+		</c:forEach>
 	</form>
-	<c:forEach items="${list }" var="a">
-		<h3>${a.abank } ${a.aaccount }</h3>
-		<h1>${a.abalance } 원</h1>
-	</c:forEach>
-	<button>채우기</button>
-	<button onclick="location.href='./send2'">보내기</button>
 
 </body>
 </html>

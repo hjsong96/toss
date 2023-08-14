@@ -5,15 +5,30 @@
 <mapper namespace="sendMoney"> 
 	
 	<select id="sendList" parameterType="accountsDTO" resultType="accountsDTO">
-		SELECT aaccount, abank, abalance FROM accounts where aaccount= #{aaccount}
+		SELECT * FROM accounts where aaccount= #{aaccount}
 	</select>
-
-<!-- 	<select id="acCheck" parameterType="accountsDTO" resultType="accountsDTO">
-		SELECT aaccount, abank FROM accounts where aaccount= #{aaccount} AND abank = #{abank }
-	</select> -->
 	
-	<select id="acCheck" parameterType="Map" resultType="Integer">
+	<select id="acCheck2" parameterType="Map" resultType="Integer">
 		SELECT COUNT(*) FROM accounts WHERE aaccount= #{aaccount} AND abank = #{abank }
 	</select>
-
+	
+	<select id="sendList2" parameterType="String" resultType="accountsDTO">
+		SELECT * FROM accounts where aaccount= #{aaccount}
+	</select>
+	
+	<select id="transList" parameterType="String" resultType="transactionsDTO">
+		SELECT * FROM transactions WHERE aaccount= #{aaccount}
+	</select>
+	
+	<select id="abCheck" parameterType="Map" resultType="accountsDTO">
+		SELECT * FROM accounts where aaccount= #{trAccount} AND abank = #{trAbank }
+	</select>
+	
+	<insert id="trSave" parameterType="Map">
+		INSERT INTO transactions (aaccount, tbank, tholder, tamount)
+		VALUES(#{id }, #{pw }, #{name }, #{address }, #{birth }, #{mbti }, #{gender })
+	</insert>
+	
+	
+	
 </mapper>

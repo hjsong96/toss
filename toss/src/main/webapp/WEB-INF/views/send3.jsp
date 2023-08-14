@@ -11,13 +11,13 @@
 	crossorigin="anonymous"></script>
 
 <script type="text/javascript">
-	$(function() {
-		$("#acCheck").click(function() {
+	$(function() {//회원 ajax
+		$("#dbCheck2").click(function() {
 			let aaccount = $("#aaccount").val();
 			let abank= $("#abank").val();
 			console.log(aaccount);
 			$.ajax({
-				url : "./send3", //어디로 갈지
+				url : "./sendCheck2", //어디로 갈지
 				type : "post", //타입
 				data : {"aaccount" : aaccount, "abank" : abank}, //어떤 값으로
 				dataType : "json", // {result : 0}
@@ -26,12 +26,40 @@
 					if (data.result == 1) {
 						$("#resultMSG").text("올바른 계좌입니다.");
 						$("#resultMSG").css("color", "green").css("font-weight", "bold").css("font-size", "10pt")
+						
+						let form = $("<form></form>");
+						form.attr("action", "./send4");
+						form.attr("method", "post");
+
+						let list = $("#acCheck").val();
+						console.log(list);
+						let input = $("<input>");
+						input.attr("name", "acCheck");
+						input.val(list);
+						
+						let list2 = $("#aaccount").val();
+						let input2 = $("<input>");
+						input2.attr("name", "trAccount");
+						input2.val(list2);
+						
+						let list3 = $("#abank").val();
+						let input3 = $("<input>");
+						input3.attr("name", "trAbank");
+						input3.val(list3);
+						
+						form.append(input);
+						form.append(input2);
+						form.append(input3);
+						
 						let button = $("<button></button>");
-                    	button.text("다음");
+						button.text("다음");
+						button.attr("type", "submit");
+                    	$("body").append(form);
+						
                    		button.click(function() {
-                        window.location.href = "./send4"; // 버튼 클릭 시 페이지 이동
-                    });
-                    $("body").append(button); // 버튼을 body에 추가
+                        	window.location.href = "./send4?acCheck=" + encodeURIComponent(list);
+						}); // 버튼 클릭 시 페이지 이동
+						form.append(button);
 					} else {
 						$("#resultMSG").text("올바르지 않은 계좌입니다. 다시 입력해주세요.");
 						$("#resultMSG").css("color", "red").css("font-weight", "bold").css("font-size", "10pt")
@@ -46,12 +74,17 @@
 			}); //ajax 끝
 		}); //acCheck 끝
 	});
+	
 </script>
 </head>
 <body>
 	<a href="./send2" style="text-decoration-line: none"> <img
 		alt="사진없음" src="./img/arrow2.png"><span style="font-size: 30px">토스뱅크</span>
 	</a><br><br>
+	<form action="./send4" method="post">
+	<input id= "acCheck" name="acCheck" value="${list[0].aaccount}">
+	<h3>${list[0].abank} ${list[0].aaccount}</h3>
+	</form>
 	<h1>어떤 계좌로 보낼까요?</h1>
 <!-- 	<form action="./send3" method="post"> -->
 		<span>계좌번호 입력</span><br> 
@@ -68,7 +101,7 @@
 			<option value="하나">하나</option>
 			<option value="새마을">새마을</option>
 		</select><br> <span id="resultMSG"></span><br>
-		<button id="acCheck">중복확인</button>
+		<button id="dbCheck2">중복확인</button>
 		<span id="next"></span>
 <!-- 	</form> -->
 

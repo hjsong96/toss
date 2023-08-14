@@ -18,8 +18,24 @@ public class SendDAO {
 		return sqlSession.selectList("sendMoney.sendList", dto);
 	}
 
-	public int acCheck(Map<String, Object> map) {
-		return sqlSession.selectOne("sendMoney.acCheck", map);
+	public int acCheck2(Map<String, Object> map) {
+		return sqlSession.selectOne("sendMoney.acCheck2", map);
+	}
+
+	public List<AccountsDTO> sendList2(String acCheck) {
+		return sqlSession.selectList("sendMoney.sendList2", acCheck);
+	}
+
+	public List<String> transList(TransactionsDTO dto) {
+		return sqlSession.selectList("sendMoney.transList", dto);
+	}
+
+	public List<AccountsDTO> abCheck(Map<String, Object> map) {
+		return sqlSession.selectList("sendMoney.abCheck", map);
+	}
+
+	public int trSave(Map<String, Object> map) {
+		return sqlSession.insert("sendMoney.trSave", map);
 	}
 
 
