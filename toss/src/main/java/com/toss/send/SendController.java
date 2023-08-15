@@ -30,17 +30,15 @@ public class SendController {
 	@PostMapping("/send")
 	public String sendList(HttpServletRequest request, Model model) {
 		AccountsDTO dto = new AccountsDTO();
-		dto.setAaccount(request.getParameter("acCheck"));
-		System.out.println(request.getParameter("acCheck"));
+		dto.setAaccount(request.getParameter("aaccount"));
+		//System.out.println(request.getParameter("aaccount"));
 		
 		List<AccountsDTO> list = sendService.sendList(dto);
 		model.addAttribute("list", list); 
-		System.out.println(list);
+		//System.out.println(list);
 
 		return "send";
 	}
-	
-	//멤버에 맞는 계좌잔액 출력
 	
 	
 	@GetMapping("/send2")
@@ -49,13 +47,18 @@ public class SendController {
 	}
 	
 	@PostMapping("/send2")
-	public String sendList2(@RequestParam ("acCheck") String acCheck, Model model) {
-		List<AccountsDTO> list = sendService.sendList2(acCheck);
-		System.out.println(list);
+	public String sendList2(@RequestParam ("aaccount") String aaccount, Model model) {
+		List<AccountsDTO> list = sendService.sendList2(aaccount);
+		//System.out.println(list);
 		model.addAttribute("list", list); 
-		System.out.println(list);
+		//System.out.println(list);
 
 		return "send2";
+	}
+	
+	@GetMapping("/myAccount")
+	public String myAccount() {
+		return "myAccount";
 	}
 	
 	@GetMapping("/send3")
@@ -64,12 +67,12 @@ public class SendController {
 	}
 	
 	@PostMapping("/send3")
-	public String sendList3(@RequestParam ("acCheck") String acCheck, Model model) {
-		System.out.println(acCheck);
-		List<AccountsDTO> list = sendService.sendList2(acCheck);
-		System.out.println(list);
+	public String sendList3(@RequestParam ("aaccount") String aaccount, Model model) {
+		//System.out.println(acCheck);
+		List<AccountsDTO> list = sendService.sendList2(aaccount);
+		//System.out.println(list);
 		model.addAttribute("list", list); 
-		System.out.println(list);
+		//System.out.println(list);
 
 		return "send3";
 	}
@@ -77,9 +80,9 @@ public class SendController {
 	@ResponseBody
 	@PostMapping("/sendCheck")//비회원 보내기 보류
 	public String acCheck(@RequestParam Map<String, Object> map) {
-		System.out.println(map);
+		//System.out.println(map);
 		JSONObject json = new JSONObject();
-		System.out.println(json.toString());
+		//System.out.println(json.toString());
 
 		return json.toString();
 	}
@@ -87,12 +90,12 @@ public class SendController {
 	@ResponseBody
 	@PostMapping("/sendCheck2")//회원 보내기 ajax
 	public String acCheck2(@RequestParam Map<String, Object> map) {
-		System.out.println(map);
+		//System.out.println(map);
 		int result = sendService.acCheck2(map);
-		System.out.println(result);
+		//System.out.println(result);
 		JSONObject json = new JSONObject();
 		json.put("result", result);
-		System.out.println(json.toString());
+		//System.out.println(json.toString());
 
 		return json.toString();
 	}
@@ -103,15 +106,15 @@ public class SendController {
 	}
 	
 	@PostMapping("/send4")
-	public String totalList(@RequestParam Map<String, Object> map, @RequestParam ("acCheck") String acCheck, @RequestParam ("trAccount") String trAccount, @RequestParam ("trAbank") String trAbank, Model model) {
+	public String totalList(@RequestParam Map<String, Object> map, @RequestParam ("aaccount") String aaccount, @RequestParam ("trAccount0") String trAccount0, @RequestParam ("trAbank0") String trAbank0, Model model) {
 		System.out.println(map);
-		List<AccountsDTO> list = sendService.sendList2(acCheck);
+		List<AccountsDTO> list = sendService.sendList2(aaccount);
 		model.addAttribute("list", list); 
-		System.out.println(list);
+		//System.out.println(list);
 
 		List<AccountsDTO> list2 = sendService.abCheck(map);
 		model.addAttribute("list2", list2); 
-		System.out.println(list2);
+		//System.out.println(list2);
 
 		return "send4";
 	}
@@ -122,9 +125,9 @@ public class SendController {
 	}
 	
 	@PostMapping("/send5")
-	public String totalList2(@RequestParam Map<String, Object> map, @RequestParam ("acCheck") String acCheck, @RequestParam ("trAccount") String trAccount, @RequestParam ("trAbank") String trAbank, Model model) {
+	public String totalList2(@RequestParam Map<String, Object> map, @RequestParam ("aaccount") String aaccount, @RequestParam ("trAccount0") String trAccount0, @RequestParam ("trAbank0") String trAbank0, Model model) {
 		System.out.println(map);
-		List<AccountsDTO> list = sendService.sendList2(acCheck);
+		List<AccountsDTO> list = sendService.sendList2(aaccount);
 		model.addAttribute("list", list); 
 		System.out.println(list);
 
@@ -132,22 +135,17 @@ public class SendController {
 		model.addAttribute("list2", list2); 
 		System.out.println(list2);
 		
-		int list3 = sendService.trSave(map);
+		model.addAttribute("list3", map);
+		
+		int list4 = sendService.trSave0(map);
+		int list5 = sendService.trSave1(map);
+		
+		int list6 = sendService.acChange0(map);
+		int list7 = sendService.acChange1(map);
 
 		return "send5";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	/*
 	 * TransactionsDTO dto = new TransactionsDTO(); dto.setAaccount(trAccount);

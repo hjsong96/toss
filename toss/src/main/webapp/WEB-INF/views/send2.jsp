@@ -17,12 +17,17 @@
 	<form action="./send3" method="post">
 	<button style="width: 350px; height: 43px; cursor: hand; background-color: transparent; color: black; border-bottom: solid 3px silver; border-top: none; border-left: none; border-right: none; font-size: 15px; color: silver; text-align: left;">계좌번호
 		입력</button>
-	<input name="acCheck" value="${list[0].aaccount}">
+	<input type="hidden" name="aaccount" value="${list[0].aaccount}">
 	</form>
-	<br> 내 계좌 확인하기
-	<button onclick="location.href='./aacount'">6개</button>
-	<br> 최근보낸계좌
-	<br> 여기... 가능하다면.... 순서대로 띄우는거 고민
+	<table>
+	<tr onclick="location.href='./myAccount'" style="cursor: pointer; width: 350px;">
 	<br>
+	<td>내계좌 확인하기</td>
+	</tr>
+	</table>
+	<br> 최근 보낸 계좌(DESC 10개만)
+	<br> NH 농협 1001 ★
+	<br> 신한 2002 ★
+	<br> ...
 </body>
 </html>

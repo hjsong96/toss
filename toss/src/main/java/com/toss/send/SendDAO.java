@@ -34,8 +34,20 @@ public class SendDAO {
 		return sqlSession.selectList("sendMoney.abCheck", map);
 	}
 
-	public int trSave(Map<String, Object> map) {
-		return sqlSession.insert("sendMoney.trSave", map);
+	public int trSave0(Map<String, Object> map) {
+		return sqlSession.insert("sendMoney.trSave0", map);
+	}
+
+	public int trSave1(Map<String, Object> map) {
+		return sqlSession.insert("sendMoney.trSave1", map);
+	}
+
+	public int acChange0(Map<String, Object> map) {
+		return sqlSession.update("sendMoney.acChange0", map);
+	}
+
+	public int acChange1(Map<String, Object> map) {
+		return sqlSession.update("sendMoney.acChange1", map);
 	}
 
 

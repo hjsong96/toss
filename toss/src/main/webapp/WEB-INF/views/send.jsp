@@ -16,9 +16,7 @@
 	<form action="./send2" method="post">
 		<button>채우기</button>
 		<button type="submit">보내기</button>
-		<c:forEach items="${list }" var="a">
-		<input name="acCheck" value="${a.aaccount }">
-		</c:forEach>
+		<input type="hidden" name="aaccount" value="${list[0].aaccount}">
 	</form>
 
 </body>

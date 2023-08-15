@@ -13,13 +13,12 @@
 <script type="text/javascript">
 	$(function() {//회원 ajax
 		$("#dbCheck2").click(function() {
-			let aaccount = $("#aaccount").val();
-			let abank= $("#abank").val();
-			console.log(aaccount);
+			let trAccount0 = $("#trAccount0").val();
+			let trAbank0= $(".trAbank0").val();
 			$.ajax({
 				url : "./sendCheck2", //어디로 갈지
 				type : "post", //타입
-				data : {"aaccount" : aaccount, "abank" : abank}, //어떤 값으로
+				data : {"aaccount" : trAccount0, "abank" : trAbank0}, //어떤 값으로
 				dataType : "json", // {result : 0}
 				success: function(data){
 					//alert(data.result); //데이터에서 result 값만 뽑겠다.
@@ -31,23 +30,26 @@
 						form.attr("action", "./send4");
 						form.attr("method", "post");
 
-						let list = $("#acCheck").val();
+						let list = $("#aaccount").val();
 						console.log(list);
 						let input = $("<input>");
-						input.attr("name", "acCheck");
+						input.attr("type", "hidden");
+						input.attr("name", "aaccount");
 						input.val(list);
 						
-						let list2 = $("#aaccount").val();
+						let list2 = $("#trAccount0").val();
 						let input2 = $("<input>");
-						input2.attr("name", "trAccount");
+						input2.attr("type", "hidden");
+						input2.attr("name", "trAccount0");
 						input2.val(list2);
 						
-						let list3 = $("#abank").val();
+						let list3 = $(".trAbank0").val();
 						let input3 = $("<input>");
-						input3.attr("name", "trAbank");
+						input3.attr("type", "hidden");
+						input3.attr("name", "trAbank0");
 						input3.val(list3);
 						
-						form.append(input);
+ 						form.append(input);
 						form.append(input2);
 						form.append(input3);
 						
@@ -57,7 +59,7 @@
                     	$("body").append(form);
 						
                    		button.click(function() {
-                        	window.location.href = "./send4?acCheck=" + encodeURIComponent(list);
+                        	window.location.href = "./send4?aaccount=" + encodeURIComponent(list);
 						}); // 버튼 클릭 시 페이지 이동
 						form.append(button);
 					} else {
@@ -82,14 +84,14 @@
 		alt="사진없음" src="./img/arrow2.png"><span style="font-size: 30px">토스뱅크</span>
 	</a><br><br>
 	<form action="./send4" method="post">
-	<input id= "acCheck" name="acCheck" value="${list[0].aaccount}">
+	<input type="hidden" id= "aaccount" name="aaccount" value="${list[0].aaccount}">
 	<h3>${list[0].abank} ${list[0].aaccount}</h3>
 	</form>
 	<h1>어떤 계좌로 보낼까요?</h1>
 <!-- 	<form action="./send3" method="post"> -->
 		<span>계좌번호 입력</span><br> 
-		<input type="text" placeholder="계좌번호 입력" name="aaccount" id="aaccount"><br> <span>은행선택</span><br>
-		<select name="abank" id="abank">
+		<input type="text" placeholder="계좌번호 입력" id="trAccount0" name="trAccount0"><br> <span>은행선택</span><br>
+		<select class="trAbank0" name="trAbank0">
 			<option value="은행선택">은행선택</option>
 			<option value="NH농협">NH농협</option>
 			<option value="카카오뱅크">카카오뱅크</option>
@@ -101,7 +103,7 @@
 			<option value="하나">하나</option>
 			<option value="새마을">새마을</option>
 		</select><br> <span id="resultMSG"></span><br>
-		<button id="dbCheck2">중복확인</button>
+		<button id="dbCheck2">계좌확인</button>
 		<span id="next"></span>
 <!-- 	</form> -->
 

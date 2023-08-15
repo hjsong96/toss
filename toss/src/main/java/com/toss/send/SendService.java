@@ -34,8 +34,20 @@ public class SendService {
 		return sendDAO.abCheck(map);
 	}
 
-	public int trSave(Map<String, Object> map) {
-		return sendDAO.trSave(map);
+	public int trSave0(Map<String, Object> map) {
+		return sendDAO.trSave0(map);
+	}
+
+	public int trSave1(Map<String, Object> map) {
+		return sendDAO.trSave1(map);
+	}
+
+	public int acChange0(Map<String, Object> map) {
+		return sendDAO.acChange0(map);
+	}
+
+	public int acChange1(Map<String, Object> map) {
+		return sendDAO.acChange1(map);
 	}
 
 	
