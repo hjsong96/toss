@@ -1,10 +1,10 @@
 package com.toss.send;
 
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
 
 @Controller
 public class SendController {
@@ -24,11 +23,13 @@ public class SendController {
 
 	@GetMapping("/send")
 	public String send() {
-		return "/send";
+
+		return "send";
 	}
+
 	
 	@PostMapping("/send")
-	public String sendList(HttpServletRequest request, Model model) {
+	public String sendList(HttpServletRequest request, Model model, HttpSession session) {
 		AccountsDTO dto = new AccountsDTO();
 		dto.setAaccount(request.getParameter("aaccount"));
 		//System.out.println(request.getParameter("aaccount"));
@@ -36,6 +37,9 @@ public class SendController {
 		List<AccountsDTO> list = sendService.sendList(dto);
 		model.addAttribute("list", list); 
 		//System.out.println(list);
+		
+		session.setAttribute("save", request.getParameter("aaccount"));
+		System.out.println("save");
 
 		return "send";
 	}
@@ -43,7 +47,7 @@ public class SendController {
 	
 	@GetMapping("/send2")
 	public String send2() {
-		return "send2";
+		return "/send2";
 	}
 	
 	@PostMapping("/send2")
@@ -63,7 +67,7 @@ public class SendController {
 	
 	@GetMapping("/send3")
 	public String send3() {
-		return "send3";
+		return "/send3";
 	}
 	
 	@PostMapping("/send3")
@@ -90,19 +94,19 @@ public class SendController {
 	@ResponseBody
 	@PostMapping("/sendCheck2")//회원 보내기 ajax
 	public String acCheck2(@RequestParam Map<String, Object> map) {
-		//System.out.println(map);
+		System.out.println(map);
 		int result = sendService.acCheck2(map);
-		//System.out.println(result);
+		System.out.println(result);
 		JSONObject json = new JSONObject();
 		json.put("result", result);
-		//System.out.println(json.toString());
+		System.out.println(json.toString());
 
 		return json.toString();
 	}
 	
 	@GetMapping("/send4")
 	public String send4() {
-		return "send4";
+		return "/send4";
 	}
 	
 	@PostMapping("/send4")
@@ -121,7 +125,7 @@ public class SendController {
 	
 	@GetMapping("/send5")
 	public String send5() {
-		return "send5";
+		return "/send5";
 	}
 	
 	@PostMapping("/send5")

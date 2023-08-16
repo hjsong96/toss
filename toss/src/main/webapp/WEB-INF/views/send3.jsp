@@ -9,8 +9,11 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js"
 	integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
 	crossorigin="anonymous"></script>
-
+	
 <script type="text/javascript">
+
+
+
 	$(function() {//회원 ajax
 		$("#dbCheck2").click(function() {
 			let trAccount0 = $("#trAccount0").val();
@@ -80,11 +83,11 @@
 </script>
 </head>
 <body>
-	<a href="./send2" style="text-decoration-line: none"> <img
+	<a href="./index" style="text-decoration-line: none"> <img
 		alt="사진없음" src="./img/arrow2.png"><span style="font-size: 30px">토스뱅크</span>
 	</a><br><br>
 	<form action="./send4" method="post">
-	<input type="hidden" id= "aaccount" name="aaccount" value="${list[0].aaccount}">
+	<input  id= "aaccount" name="aaccount" value="${list[0].aaccount}">
 	<h3>${list[0].abank} ${list[0].aaccount}</h3>
 	</form>
 	<h1>어떤 계좌로 보낼까요?</h1>

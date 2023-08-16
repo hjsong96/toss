@@ -18,7 +18,7 @@ public class MainDAO {
 	
 	public List<Map<String, Object>> transactionList(int ttoggle, String aaccount){
 		
-		/*
+		
 		// toggle = -1 : 전체, 0 : 출금, 1 : 입금
 		if(ttoggle == -1)
 			return sqlSession.selectList("main.transactionList", aaccount);
@@ -28,9 +28,9 @@ public class MainDAO {
 			return sqlSession.selectList("main.dipositList", aaccount);
 		else
 			return null;
-		*/
 		
-		return sqlSession.selectList("main.transactionList", aaccount);
+		
+		// return sqlSession.selectList("main.transactionList", aaccount);
 	}
 
 	public Map<String, Object> accountInfo(String aaccount) {

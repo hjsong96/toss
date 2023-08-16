@@ -6,14 +6,15 @@
 <head>
 <meta charset="UTF-8">
 <title>보내기5</title>
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
 <script src="https://code.jquery.com/jquery-3.7.0.js"
 	integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
 	crossorigin="anonymous"></script>
-	
-	
 </head>
 <body>
-	<a href="./send4" style="text-decoration-line: none"> <img
+	<a href="./index" style="text-decoration-line: none"> <img
 		alt="사진없음" src="./img/arrow2.png"><span style="font-size: 30px">토스뱅크</span>
 	</a><br><br>
 	<form action="./send" method="post">

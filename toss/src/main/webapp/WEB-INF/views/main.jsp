@@ -8,11 +8,6 @@
 <link rel="stylesheet" href="./resources/css/main.css">
 
 <script src="./js/jquery-3.7.0.min.js"></script>
-<script type="text/javascript">
-
-
-	
-</script>
 
 </head>
 <body>
@@ -37,62 +32,62 @@
    		<button type="button" class="closePopup" onclick="changeList('0')">출금</button><br>
     </div>
     
-    <br><br>${transactiondate0 }<br>${transactiondate1 }<br><h1>${transactionList[0] }</h1><h1>${transactionList[1] }</h1><br>
-    ${transactionList }
+    <br>
+    <br>
+    <h1>${transactiondate0 }</h1>
+    <h1>${transactiondate1 }</h1>
+    <h1>${transactionList[0] }</h1>
+    <h1>${transactionList[1] }</h1>
     
     
     
 <script type="text/javascript">
 
-   document.getElementById("openPopup").addEventListener("click", function() {
-       document.getElementById("overlay").style.display = "block";
-       document.getElementById("popup").style.display = "block";
-   });
+	document.getElementById("openPopup").addEventListener("click", function() {
+	    document.getElementById("overlay").style.display = "block";
+	    document.getElementById("popup").style.display = "block";
+	});
 
-   document.getElementById("openPopup").addEventListener("click", function() {
-       document.getElementById("overlay").style.display = "block";
-       document.getElementById("popup").style.display = "block";
-   });
+	document.getElementById("openPopup").addEventListener("click", function() {
+	    document.getElementById("overlay").style.display = "block";
+	    document.getElementById("popup").style.display = "block";
+	});
 
-   let closeButtons = document.getElementsByClassName("closePopup");
-   for (var i = 0; i < closeButtons.length; i++) {
-       closeButtons[i].addEventListener("click", function() {
-           document.getElementById("overlay").style.display = "none";
-           document.getElementById("popup").style.display = "none";
-       });
-   }
+	let closeButtons = document.getElementsByClassName("closePopup");
+	for (var i = 0; i < closeButtons.length; i++) {
+	    closeButtons[i].addEventListener("click", function() {
+	        document.getElementById("overlay").style.display = "none";
+	        document.getElementById("popup").style.display = "none";
+	    });
+	}
 
-   let allButtons = document.querySelectorAll("button[type='button']");
-   allButtons.forEach(function(button) {
-       button.addEventListener("click", function() {
-           document.getElementById("openPopup").innerHTML = this.innerHTML;
-       });
-   });
-   
-   function changeList(value){
-      
-      alert(value);
-      
-      $.ajax({
-         url : "./chgList",
-         type : "post",
-         data : {"option" : value, "aaccount": ${accountInfo.aaccount}},
-         dataType : "json",
-         success : function(data){
-            alert(data.transactionList[0].tno);
-            alert(data.transactionList[1].tno);
-            alert(data.transactionDate0.minute);
-            alert(data.transactionDate1.minute);
-         },
-         error : function(error){
-            alert("ERROR : " + error);
-         }
-      });
-   }
-</script>
-
-
-
+	let allButtons = document.querySelectorAll("button[type='button']");
+	allButtons.forEach(function(button) {
+	    button.addEventListener("click", function() {
+	        document.getElementById("openPopup").innerHTML = this.innerHTML;
+	    });
+	});
 	
+	function changeList(value){
+		
+		alert(value);
+		
+		$.ajax({
+			url : "./chgList",
+			type : "post",
+			data : {"option" : value, "aaccount": ${accountInfo.aaccount}},
+			dataType : "json",
+			success : function(data){
+				alert(data.transactionList[0].tno);
+				alert(data.transactionList[1].tno);
+				alert(data.transactionDate[0].minute);
+				alert(data.transactionDate[1].minute);
+			},
+			error : function(error){
+				alert("ERROR : " + error);
+			}
+		});
+	}
+</script>
 </body>
 </html>

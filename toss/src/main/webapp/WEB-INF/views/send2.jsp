@@ -6,9 +6,11 @@
 <head>
 <meta charset="UTF-8">
 <title>보내기2</title>
+<script type="text/javascript">
+</script>
 </head>
 <body>
-	<a href="./send" style="text-decoration-line: none"> <img
+	<a href="./index" style="text-decoration-line: none"> <img
 		alt="사진없음" src="./img/arrow2.png"><span style="font-size: 30px">토스뱅크</span>
 	</a>
 	<h1>어디로 돈을 보낼까요?</h1>
@@ -17,7 +19,7 @@
 	<form action="./send3" method="post">
 	<button style="width: 350px; height: 43px; cursor: hand; background-color: transparent; color: black; border-bottom: solid 3px silver; border-top: none; border-left: none; border-right: none; font-size: 15px; color: silver; text-align: left;">계좌번호
 		입력</button>
-	<input type="hidden" name="aaccount" value="${list[0].aaccount}">
+	<input  id=aaccount name="aaccount" value="${list[0].aaccount}">
 	</form>
 	<table>
 	<tr onclick="location.href='./myAccount'" style="cursor: pointer; width: 350px;">

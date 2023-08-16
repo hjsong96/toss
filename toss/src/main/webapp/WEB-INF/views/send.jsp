@@ -8,15 +8,16 @@
 <title>보내기1</title>
 </head>
 <body>
-	<a href="./" style="text-decoration-line: none">
+	<a href="./index" style="text-decoration-line: none">
 	<img alt="사진없음" src="./img/arrow2.png"><span style="font-size: 30px">토스뱅크</span>
 	</a>
-		<h3>${list[0].abank} ${list[0].aaccount}</h3>
+		<h3>${list[0].abank} ${sessionScope.save}</h3>
 		<h1>${list[0].abalance} 원</h1>
+
 	<form action="./send2" method="post">
 		<button>채우기</button>
 		<button type="submit">보내기</button>
-		<input type="hidden" name="aaccount" value="${list[0].aaccount}">
+		<input  name="aaccount" value="${sessionScope.save}">
 	</form>
 
 </body>
