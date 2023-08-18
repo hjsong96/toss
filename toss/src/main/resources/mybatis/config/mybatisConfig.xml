@@ -4,9 +4,13 @@
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
-		<typeAlias type="com.toss.send.AccountsDTO" alias="accountsDTO"/>
-		<typeAlias type="com.toss.send.TransactionsDTO" alias="transactionsDTO"/>
-		<typeAlias type="com.toss.member.MemberDTO" alias="MemberDTO"/>
-		
+		<typeAlias type="com.toss.account.AccountDTO"
+			alias="accountDTO" />
+		<typeAlias type="com.toss.member.MemberDTO"
+			alias="memberDTO" />
+		<typeAlias type="com.toss.send.AccountsDTO"
+			alias="accountsDTO" />
+		<typeAlias type="com.toss.send.TransactionsDTO"
+			alias="transactionsDTO" />
 	</typeAliases>
 </configuration>

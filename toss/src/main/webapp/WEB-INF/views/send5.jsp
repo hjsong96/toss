@@ -14,13 +14,13 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<a href="./index" style="text-decoration-line: none"> <img
+	<a href="./list" style="text-decoration-line: none"> <img
 		alt="사진없음" src="./img/arrow2.png"><span style="font-size: 30px">토스뱅크</span>
 	</a><br><br>
-	<form action="./send" method="post">
+	<form action="./main" method="post">
 	<input type="hidden" name="aaccount" value="${list[0].aaccount}">
-	<input type="hidden" id= "trAccount0" name="trAccount" value="${list2[0].aaccount}">
-	<input type="hidden" id= "trAbank0" name="trAbank" value="${list2[0].abank}">
+	<input type="hidden" id= "trAccount1" name="trAccount1" value="${list2[0].aaccount}">
+	<input type="hidden" id= "trAbank1" name="trAbank1" value="${list2[0].abank}">
 	<h1>${list3.trholder0} 님에게 ${list3.tamount} 원을 보냈어요</h1> 
 	<button>확인</button>
 	</form>

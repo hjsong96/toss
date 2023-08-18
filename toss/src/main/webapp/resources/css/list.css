@@ -1,0 +1,169 @@
+@charset "UTF-8";
+
+.btnList {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 가운데 정렬 */
+  justify-content: center; /* 세로 가운데 정렬 */
+  height: 100vh; /* 뷰포트의 높이를 100%로 설정 */
+   
+}
+
+.accbtn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+   text-align: left;
+   padding-left: 30px;
+   margin : 10px;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   width: 250px;
+   height: 50px;
+   background-color: white;
+   border-color: #0080FF;
+}
+.totalbtn {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+   text-align: left;
+   padding-left: 30px;
+   margin : 10px;
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+   width: 250px;
+   height: 50px;
+   background-color: white;
+   border-color: #0080FF;
+}
+
+ .acc-container {
+        position: relative;
+    }
+
+    .send-button {
+        position: absolute;
+        top: 12px;
+        right: 25px;
+    }
+
+
+.tossopen{
+   text-align: center;
+}
+
+
+.accbtn:hover {
+    background-color: #2980b9;
+    color:white;
+}
+
+.balance-margin {
+    margin-left: 30px; /* 여백 크기를 조절하세요 */
+}
+
+
+
+
+
+
+
+.nav_container {
+   position: relative;
+   display: flex;
+   width: 100%;
+   min-width: 60em;
+   padding: 0 1.25em;
+   margin: 1.25em auto;
+}
+
+* {
+   -webkit-box-sizing: border-box;
+   -moz-box-sizing: border-box;
+   -webkit-text-size-adjust: none;
+   box-sizing: border-box;
+}
+
+
+.content_signin {
+   min-height: 41.667em;
+   text-align: center;
+   margin: 5em auto;
+   border: 2px solid #516B82;
+}
+
+.content_signin .signin_section_group {
+   position: relative;
+   width: 28.333em;
+   height: 41.667em;
+   overflow: hidden;
+}
+
+.content_signin .signin-section .signin_pw {
+   border-top: 1;
+   border-radius: 0 0 2px 2px;
+}
+
+.content_signin .signin_swiper {
+   position: absolute;
+   display: flex;
+   width: 56.667em;
+   transform: translate3d(0, 0, 0);
+   transition-duration: 300ms;
+}
+
+.content_signin .signin_section {
+   width: 28em;
+   margin: 0 0.167em;
+}
+
+.content_signin .signin-section .signin_id, .content_signin .signin-section .signin_pw
+   {
+   width: 100%;
+   font-size: 1em;
+   padding: 0.75em 1.625em;
+   border-radius: 2px 2px 0 0;
+}
+
+.content_signin .signin-section {
+   padding: 3.25em 5em;
+}
+
+.content_signin .button_join {
+   display: block;
+   width: 11em;
+   font-size: 1.167em;
+   margin: 7.143em auto;
+   padding: 0.929em 1.429em;
+   border: 1px solid #ccc;
+   border-radius: 2px;
+}
+
+.content_signin .signin-section #button_login {
+   width: 80%;
+   height: 2.2em;
+   font-size: 1.4em;
+   color: black;
+   font-weight: 300;
+   margin: 1.3em -1em;
+   border: 2px solid #516B82;
+
+}
+
+.content_signin .signin_title {
+   display: inline-block;
+   font-size: 2.167em;
+   font-weight: 300;
+   padding: 0.192em 0;
+   margin: 0.769em 0;
+   border-bottom: 1px solid #333;
+}
+
+.content_signin .signin_group {
+   min-height: 41.667em;
+   text-align: center;
+   margin: 5em auto;
+}

@@ -21,25 +21,25 @@
 	</select>
 	
 	<select id="abCheck" parameterType="Map" resultType="accountsDTO">
-		SELECT * FROM accounts where aaccount= #{trAccount0} AND abank = #{trAbank0 }
+		SELECT * FROM accounts where aaccount= #{trAccount1} AND abank = #{trAbank1 }
 	</select>
 	
 	<insert id="trSave0" parameterType="Map">
 		INSERT INTO transactions (aaccount, tbank, tholder, thistory, ttoggle, tamount, tbalance)
-		VALUES(#{trAccount0 }, #{trAbank0 }, #{trholder0 }, #{tHistory1 }, #{ttoggle0 }, #{tamount }, #{trbalance0 } )
+		VALUES(#{aaccount }, #{trAbank0 }, #{trholder0 }, #{tHistory0 }, #{ttoggle0 }, #{tamount }, #{trbalance0 } )
 	</insert>
 	
 	<insert id="trSave1" parameterType="Map">
 		INSERT INTO transactions (aaccount, tbank, tholder, thistory, ttoggle, tamount, tbalance)
-		VALUES(#{aaccount }, #{trAbank1 }, #{trholder1 }, #{tHistory0 }, #{ttoggle1 }, #{tamount }, #{trbalance1 } )
+		VALUES(#{trAccount1 }, #{trAbank1 }, #{trholder1 }, #{tHistory1 }, #{ttoggle1 }, #{tamount }, #{trbalance1 } )
 	</insert>
 	
 	<update id="acChange0" parameterType="Map">
-		UPDATE accounts SET abalance = #{trbalance0 } WHERE aaccount =#{trAccount0 } AND abank=#{trAbank0 }
+		UPDATE accounts SET abalance = #{trbalance0 } WHERE aaccount =#{aaccount } AND abank=#{trAbank0 }
 	</update>
 	
 	<update id="acChange1" parameterType="Map">
-		UPDATE accounts SET abalance = #{trbalance1 } WHERE aaccount =#{aaccount } AND abank=#{trAbank1 }
+		UPDATE accounts SET abalance = #{trbalance1 } WHERE aaccount =#{trAccount1 } AND abank=#{trAbank1 }
 	</update>
 	
 </mapper>

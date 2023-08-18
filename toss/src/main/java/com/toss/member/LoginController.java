@@ -17,13 +17,9 @@ public class LoginController {
 	@Autowired
 	private LoginService loginService;
 	
-	/*
-	 * @GetMapping("/") public String main() { return "index"; }
-	 */
-	
 	@GetMapping("/login")
 	public String login() {
-		return "login";
+		return "index";
 	}
 	
 	@PostMapping("/login")
@@ -41,7 +37,7 @@ public class LoginController {
 			System.out.println(session.getAttribute("mphone"));
 			System.out.println(session.getAttribute("mname"));
 			
-			return "redirect:login"; 
+			return "redirect:list"; 
 		} else {
 			return "redirect:/"; 
 		}

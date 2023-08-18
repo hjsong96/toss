@@ -27,8 +27,8 @@
 				$(".tHistory1").val("${list[0].aholder}");
 			}
 			
-			let tgCheck0 = $("#trAccount0").val();
-			let tgCheck1 = $("#aaccount").val();
+			let tgCheck0 = $("#aaccount").val();
+			let tgCheck1 = $("#trAccount1").val();
 
 			if (tgCheck0 != null) {
 				$(".ttoggle0").val(0);
@@ -39,8 +39,8 @@
 			}
 			
 
-			let trbalance0 = parseFloat($(".trbalance0").val());
-			let trbalance1 = parseFloat($(".trbalance1").val());
+			let trbalance0 = parseFloat($(".trbalance0").val()); //출금
+			let trbalance1 = parseFloat($(".trbalance1").val()); //입금
 			let tamount = parseFloat($(".tamount").val());
 			
 	        if (isNaN(tamount) || tamount <= 0) {
@@ -49,7 +49,7 @@
 	            return false;
 	        }
 
-			if (trbalance1 < tamount ) {
+			if (trbalance0 < tamount ) {
 				alert("잔액이 부족합니다. 다시 입력해주세요.")
 				$(".tamount").focus();
 				$(".alertB").text("잔액 ${list[0].abalance} 원 내에서 입력해주세요").css("color", "red").css("font-weight", "bold").css("font-size", "13pt");
@@ -57,40 +57,40 @@
 			}
 			
 			
-			trbalance0 = trbalance0 + tamount;
-			trbalance1 = trbalance1 - tamount;
+			trbalance0 = trbalance0 - tamount;
+			trbalance1 = trbalance1 + tamount;
 			$(".trbalance0").val(trbalance0);
 			$(".trbalance1").val(trbalance1);
 		});
 	});
-
+//출금0 입금1
 </script>
 </head>
 <body>
-	<a href="./index" style="text-decoration-line: none"> <img
+	<a href="./list" style="text-decoration-line: none"> <img
 		alt="사진없음" src="./img/arrow2.png"><span style="font-size: 30px">토스뱅크</span>
 	</a><br><br>
 	<form action="./send5" method="post">
-	<input  id= "aaccount" name="aaccount" value="${list[0].aaccount}">
-	<input type="hidden" class= "trAbank1" name="trAbank1" value="${list[0].abank}">
-	<input type="hidden" class= "trholder1" name="trholder1" value="${list[0].aholder}">
-	<input type="hidden" class= "trbalance1" name="trbalance1" value="${list[0].abalance}">
+	<input type="hidden" id= "aaccount" name="aaccount" value="${list[0].aaccount}">
+	<input type="hidden" class= "trAbank0" name="trAbank0" value="${list[0].abank}">
+	<input  type="hidden" class="trholder0" name="trholder0" value="${list[0].aholder}">
+	<input  type="hidden" class="trbalance0" name="trbalance0" value="${list[0].abalance}">
 	<br>
-	<input type="hidden" id= "trAccount0" name="trAccount0" value="${list2[0].aaccount}">
-	<input type="hidden" class= "trAbank0" name="trAbank0" value="${list2[0].abank}">
-	<input type="hidden" class= "trholder0" name="trholder0" value="${list2[0].aholder}">
-	<input type="hidden" class= "trbalance0" name="trbalance0" value="${list2[0].abalance}">
+	<input type="hidden" id= "trAccount1" name="trAccount1" value="${list2[0].aaccount}">
+	<input type="hidden" class="trAbank1" name="trAbank1" value="${list2[0].abank}">
+	<input type="hidden" class="trholder1" name="trholder1" value="${list2[0].aholder}">
+	<input  type="hidden" class="trbalance1" name="trbalance1" value="${list2[0].abalance}">
 	<h1>내 ${list[0].abank} 통장에서 ${list[0].aholder} 님이 </h1>
 	<h3>잔액 ${list[0].abalance} 원</h3>
 	<h1>${list2[0].aholder} 님에게</h1>
 	<h3>${list2[0].abank} ${list2[0].aaccount}</h3>
 	<input class= "tamount" name="tamount" type="text" placeholder="얼마나 보낼까요?">
 	<h3 class="alertB">잔액 ${list[0].abalance} 원 입력</h3>
-	<input class="tHistory1" name="tHistory1" placeholder="받는 분에게 표시"><br>
-	<input type="hidden" class="tHistory0" name="tHistory0" value="${list2[0].aholder}" >
-	<input type="hidden" class="ttoggle0" name="ttoggle0">
-	<input type="hidden" class="ttoggle1" name="ttoggle1"><br>
 	<button id="send">보내기</button>
+	<input type="hidden" class="tHistory1" name="tHistory1" placeholder="받는 분에게 표시"><br>
+	<input type="hidden" class="tHistory0" name="tHistory0" value="${list2[0].aholder}" >
+	<input type="hidden" class="ttoggle0" name="ttoggle0"><br>
+	<input type="hidden" class="ttoggle1" name="ttoggle1">
 	</form>
 </body>
 </html>

@@ -16,12 +16,12 @@
 
 	$(function() {//회원 ajax
 		$("#dbCheck2").click(function() {
-			let trAccount0 = $("#trAccount0").val();
-			let trAbank0= $(".trAbank0").val();
+			let trAccount1 = $("#trAccount1").val();
+			let trAbank1= $(".trAbank1").val();
 			$.ajax({
 				url : "./sendCheck2", //어디로 갈지
 				type : "post", //타입
-				data : {"aaccount" : trAccount0, "abank" : trAbank0}, //어떤 값으로
+				data : {"aaccount" : trAccount1, "abank" : trAbank1}, //어떤 값으로
 				dataType : "json", // {result : 0}
 				success: function(data){
 					//alert(data.result); //데이터에서 result 값만 뽑겠다.
@@ -40,16 +40,16 @@
 						input.attr("name", "aaccount");
 						input.val(list);
 						
-						let list2 = $("#trAccount0").val();
+						let list2 = $("#trAccount1").val();
 						let input2 = $("<input>");
 						input2.attr("type", "hidden");
-						input2.attr("name", "trAccount0");
+						input2.attr("name", "trAccount1");
 						input2.val(list2);
 						
-						let list3 = $(".trAbank0").val();
+						let list3 = $(".trAbank1").val();
 						let input3 = $("<input>");
 						input3.attr("type", "hidden");
-						input3.attr("name", "trAbank0");
+						input3.attr("name", "trAbank1");
 						input3.val(list3);
 						
  						form.append(input);
@@ -83,18 +83,18 @@
 </script>
 </head>
 <body>
-	<a href="./index" style="text-decoration-line: none"> <img
+	<a href="./list" style="text-decoration-line: none"> <img
 		alt="사진없음" src="./img/arrow2.png"><span style="font-size: 30px">토스뱅크</span>
 	</a><br><br>
 	<form action="./send4" method="post">
-	<input  id= "aaccount" name="aaccount" value="${list[0].aaccount}">
+	<input type="hidden" id= "aaccount" name="aaccount" value="${list[0].aaccount}">
 	<h3>${list[0].abank} ${list[0].aaccount}</h3>
 	</form>
 	<h1>어떤 계좌로 보낼까요?</h1>
 <!-- 	<form action="./send3" method="post"> -->
 		<span>계좌번호 입력</span><br> 
-		<input type="text" placeholder="계좌번호 입력" id="trAccount0" name="trAccount0"><br> <span>은행선택</span><br>
-		<select class="trAbank0" name="trAbank0">
+		<input type="text" placeholder="계좌번호 입력" id="trAccount1" name="trAccount1"><br> <span>은행선택</span><br>
+		<select class="trAbank1" name="trAbank1">
 			<option value="은행선택">은행선택</option>
 			<option value="NH농협">NH농협</option>
 			<option value="카카오뱅크">카카오뱅크</option>

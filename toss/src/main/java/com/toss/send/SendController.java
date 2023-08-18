@@ -23,11 +23,11 @@ public class SendController {
 
 	@GetMapping("/send")
 	public String send() {
-
-		return "send";
+		System.out.println("!");
+		return "/send";
 	}
 
-	
+	//HttpSession session
 	@PostMapping("/send")
 	public String sendList(HttpServletRequest request, Model model, HttpSession session) {
 		AccountsDTO dto = new AccountsDTO();
@@ -41,19 +41,26 @@ public class SendController {
 		session.setAttribute("save", request.getParameter("aaccount"));
 		System.out.println("save");
 
-		return "send";
+		return "/send";
 	}
 	
 	
 	@GetMapping("/send2")
-	public String send2() {
-		return "/send2";
+	public String list(HttpServletRequest request, Model model, HttpSession session) {
+		String mphone = (String) session.getAttribute("mphone");
+		if (mphone == null) {
+			return "redirect:/login"; 
+		} else {
+			return "send2"; 
+		}
 	}
 	
 	@PostMapping("/send2")
 	public String sendList2(@RequestParam ("aaccount") String aaccount, Model model) {
+		System.out.println(aaccount);
 		List<AccountsDTO> list = sendService.sendList2(aaccount);
-		//System.out.println(list);
+		
+		System.out.println(list);
 		model.addAttribute("list", list); 
 		//System.out.println(list);
 
@@ -110,7 +117,7 @@ public class SendController {
 	}
 	
 	@PostMapping("/send4")
-	public String totalList(@RequestParam Map<String, Object> map, @RequestParam ("aaccount") String aaccount, @RequestParam ("trAccount0") String trAccount0, @RequestParam ("trAbank0") String trAbank0, Model model) {
+	public String totalList(@RequestParam Map<String, Object> map, @RequestParam ("aaccount") String aaccount, @RequestParam ("trAccount1") String trAccount1, @RequestParam ("trAbank1") String trAbank1, Model model) {
 		System.out.println(map);
 		List<AccountsDTO> list = sendService.sendList2(aaccount);
 		model.addAttribute("list", list); 
@@ -129,7 +136,7 @@ public class SendController {
 	}
 	
 	@PostMapping("/send5")
-	public String totalList2(@RequestParam Map<String, Object> map, @RequestParam ("aaccount") String aaccount, @RequestParam ("trAccount0") String trAccount0, @RequestParam ("trAbank0") String trAbank0, Model model) {
+	public String totalList2(@RequestParam Map<String, Object> map, @RequestParam ("aaccount") String aaccount, @RequestParam ("trAccount1") String trAccount1, @RequestParam ("trAbank1") String trAbank1, Model model) {
 		System.out.println(map);
 		List<AccountsDTO> list = sendService.sendList2(aaccount);
 		model.addAttribute("list", list); 
@@ -146,7 +153,7 @@ public class SendController {
 		
 		int list6 = sendService.acChange0(map);
 		int list7 = sendService.acChange1(map);
-
+		
 		return "send5";
 	}
 
