@@ -4,11 +4,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="./css/send4.css">
 <meta charset="UTF-8">
 <title>보내기4</title>
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-<meta http-equiv="Pragma" content="no-cache">
-<meta http-equiv="Expires" content="0">
+<style type="text/css">
+@import
+	url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap')
+	;
+</style>
 <script src="https://code.jquery.com/jquery-3.7.0.js"
 	integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
 	crossorigin="anonymous"></script>
@@ -67,9 +70,14 @@
 </script>
 </head>
 <body>
-	<a href="./list" style="text-decoration-line: none"> <img
-		alt="사진없음" src="./img/arrow2.png"><span style="font-size: 30px">토스뱅크</span>
-	</a><br><br>
+	<div class="total">
+		<div class="send_content">
+			<div class="back">
+				<a href="./list" style="text-decoration-line: none"> <img
+					alt="사진없음" src="./img/arrow2.png"><span
+					style="font-size: 25px"></span>
+				</a>
+	</div>
 	<form action="./send5" method="post">
 	<input type="hidden" id= "aaccount" name="aaccount" value="${list[0].aaccount}">
 	<input type="hidden" class= "trAbank0" name="trAbank0" value="${list[0].abank}">
@@ -84,14 +92,18 @@
 	<h3>잔액 ${list[0].abalance} 원</h3>
 	<h1>${list2[0].aholder} 님에게</h1>
 	<h3>${list2[0].abank} ${list2[0].aaccount}</h3>
+	<div>
 	<input class= "tamount" name="tamount" type="text" placeholder="얼마나 보낼까요?">
+	</div>
 	<h3 class="alertB">잔액 ${list[0].abalance} 원 입력</h3>
+	<input class="tHistory1" name="tHistory1" placeholder="받는 분에게 표시"><br>
 	<button id="send">보내기</button>
-	<input type="hidden" class="tHistory1" name="tHistory1" placeholder="받는 분에게 표시"><br>
 	<input type="hidden" class="tHistory0" name="tHistory0" value="${list2[0].aholder}" >
 	<input type="hidden" class="ttoggle0" name="ttoggle0"><br>
 	<input type="hidden" class="ttoggle1" name="ttoggle1">
 	</form>
+	</div>
+	</div>
 </body>
 </html>
 <!-- 	<button onclick="window.location.href='./send5'; return false;">보내기</button> -->

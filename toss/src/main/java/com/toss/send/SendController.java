@@ -72,6 +72,17 @@ public class SendController {
 		return "myAccount";
 	}
 	
+	@GetMapping("/account")
+	public String account() {
+		return "account";
+	}
+	
+	@GetMapping("/contact")
+	public String contact() {
+		return "contact";
+	}
+	
+	
 	@GetMapping("/send3")
 	public String send3() {
 		return "/send3";
